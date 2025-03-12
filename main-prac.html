@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    // 문서 getting
+    const root = document.querySelector('#root');
+    console.log(root);
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://pokeapi.co/api/v2/pokemon-species/1/", false);
+    // 숫자 증가
+    // post로 보내서 저장
+    // 포켓몬 전체를 ulList로 뽑는다. 
+
+
+
+    xhr.addEventListener('load', () => {
+      if(xhr.status == 200) {
+        const data = JSON.parse(xhr.responseText);
+        console.dir(data);
+        console.log(data.names[2].name);
+      }
+    });
+
+    xhr.send();
+
+  </script>
+</body>
+</html>
